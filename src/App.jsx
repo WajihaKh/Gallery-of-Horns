@@ -6,10 +6,33 @@ import Footer from "./components/Footer/Footer";
 import SelectedBeast from "./components/SelectedBeast";
 import "bootstrap/dist/css/bootstrap.min.css";
 import data from "./data.json";
+import BeastByHorns from "./components/BeastByHorns";
+import HornedBeast from "./components/HornedBeast";
 
 function App() {
   const [selectBeast, setSelectBeast] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [filteredData, setFilteredData] = useState(data);
+
+  const voteForBeast = (hornedBeastTitle) => {
+    let filteredBeasts = filteredData.map ((beastObj, index) => {
+      if (beastObj.title === hornedBeastTitle) {
+        beastObj.votes ++;
+        return beastObj;
+      }
+      return beastObj;
+    })
+    setFilteredData(filteredBeasts)
+  }
+
+  const handleFilter = (selectedValue) => {
+    if (selectedValue === 'all') {
+      setFilteredData(data);
+    } else {
+      const filtered = data.filter(beast => beast.horns.toString() === selectedValue);
+      setFilteredData(filtered);
+    }
+  }
 
   const handleBeastSelect = (beastName) => {
     console.log('beastName', beastName);
@@ -21,14 +44,18 @@ function App() {
       setShowModal(true);
     }
   };
+
   return (
     <>
       <Header title="Horned Beast" />
+      <BeastByHorns data={data} handleFilter={handleFilter} />
+
       <Gallery 
-      data={data}
+      filteredData={filteredData}
       handleBeastSelect={handleBeastSelect} 
+      voteForBeast = {voteForBeast}
       />
-      
+
       {selectBeast && (
         <SelectedBeast
           selectBeast={selectBeast}

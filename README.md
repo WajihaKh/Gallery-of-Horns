@@ -16,5 +16,11 @@ Actual time needed to complete: 5 hours
 Class 3 Lab:
 Estimated time need: 3 1/2 hours
 Started: 5:30 pm
-Finished:
+Finished: 9:00 pm
 Actual time needed to complete: 4-5 hours
+
+Class 4 Lab:
+Estimated time need: 3 1/2 hours
+Started: 5:50 pm
+Finished: 9:50 pm
+Actual time needed to complete: 3-4 hours

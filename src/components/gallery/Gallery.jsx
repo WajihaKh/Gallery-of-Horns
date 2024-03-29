@@ -1,21 +1,25 @@
 /* eslint-disable react/prop-types */
+import { useState } from 'react';
 import React from 'react';
 import HornedBeast from '../HornedBeast';
 import './gallery.css';
 // import data from '../../data.json';
 
 
-const Gallery = ({data, handleBeastSelect}) => {
+const Gallery = ({filteredData, handleBeastSelect, voteForBeast}) => {
+
     return (
         <div className="HornedBeast">
-          {data.map((beast, index) => (
+          {filteredData.map((beast, index) => (
             <HornedBeast
                key={index}
                title={beast.title}
                image_url={beast.image_url} 
                description= {beast.description}
+               votes= {beast.votes}
                handleBeastSelect = {handleBeastSelect}
-              //  onSelect={() => onSelect(beast)}
+               filteredData = {filteredData}
+               voteForBeast = {voteForBeast}
             />
           ))}
         </div>
