@@ -6,8 +6,8 @@ import './gallery.css';
 // import data from '../../data.json';
 
 
-const Gallery = ({filteredData, handleBeastSelect, }) => {
-  // const [filterByHorns, setFilterByHorns] = useState('all');
+const Gallery = ({filteredData, handleBeastSelect, voteForBeast}) => {
+
     return (
         <div className="HornedBeast">
           {filteredData.map((beast, index) => (
@@ -16,8 +16,10 @@ const Gallery = ({filteredData, handleBeastSelect, }) => {
                title={beast.title}
                image_url={beast.image_url} 
                description= {beast.description}
+               votes= {beast.votes}
                handleBeastSelect = {handleBeastSelect}
-               
+               filteredData = {filteredData}
+               voteForBeast = {voteForBeast}
             />
           ))}
         </div>

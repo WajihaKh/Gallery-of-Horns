@@ -3,11 +3,15 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 
-function HornedBeast({title, image_url, description, handleBeastSelect}) {
+function HornedBeast({title, image_url, description, handleBeastSelect, filteredData, votes, voteForBeast}) {
 
-    const [count, setCount] = useState(0);
+    const [allBeast, setAllBeast] = useState(null);
 
-    const addCount = () => setCount(count +1);
+    const addCount = (hornedBeastTitle) => {
+      console.log('hornedBeastTitle', hornedBeastTitle)
+      voteForBeast(hornedBeastTitle);
+    };
+
     const handleClick = () => {
       handleBeastSelect(title);
     }
@@ -19,7 +23,7 @@ function HornedBeast({title, image_url, description, handleBeastSelect}) {
           <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Text>{description}</Card.Text>
-            <Button onClick ={addCount} variant="primary">❤️ : {count}</Button>
+            <Button onClick ={() => addCount(title)} variant="primary">❤️ : {votes}</Button>
           </Card.Body>
         </Card>
         </>

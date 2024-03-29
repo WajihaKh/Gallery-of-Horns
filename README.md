@@ -22,5 +22,5 @@ Actual time needed to complete: 4-5 hours
 Class 4 Lab:
 Estimated time need: 3 1/2 hours
 Started: 5:50 pm
-Finished:
+Finished: 9:50 pm
 Actual time needed to complete: 3-4 hours
